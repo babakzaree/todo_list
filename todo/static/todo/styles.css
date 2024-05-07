@@ -78,3 +78,30 @@ button[type="submit"] {
     text-decoration: line-through; /* Add strike-through effect */
     color: #999; /* Change text color to gray for completed tasks */
 }
+
+
+/* Add New Task button */
+.add-task-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-task-btn::before {
+    content: "+";
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.remove-btn {
+    background-color: #fa0515;
+    color: #fff;
+}
