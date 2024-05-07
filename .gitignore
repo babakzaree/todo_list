@@ -1,0 +1,8 @@
+*__pycache__*
+db.sqlite3
+.idea/*
+*filer_public*
+public/
+public_thumbnails/
+venv/*
+*.sqlite3

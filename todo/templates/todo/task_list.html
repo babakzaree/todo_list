@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/styles.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Task List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li {% if task.completed %}class="completed"{% endif %}>
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <form action="{% url 'complete_task' task.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %} onchange="this.form.submit()">
+                </form>
+                <form action="{% url 'task_delete' task.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this task?')">
+                    {% csrf_token %}
+                    <button type="submit" class="remove-btn">Remove</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'task_create' %}">Add New Task</a>
+</div>
+
+</body>
+</html>
